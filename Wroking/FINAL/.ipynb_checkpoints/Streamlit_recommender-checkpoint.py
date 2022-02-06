@@ -19,7 +19,7 @@ st.write("First of all, welcome! This is the place where you can customize what 
 st.markdown("##")
 
 
-df = pd.read_csv('../data/JOINT.csv')
+df = pd.read_csv('../data/DATA.csv')
 
 df.drop(columns = ['time_signature'], inplace = True)
 
