@@ -109,15 +109,15 @@ Next, let's take a look at the correlation between audio features. These correla
 
 ![This is an image](./images/Correlation_heatmap.png)
 
-As shown below, song audio feature trends over the years have stabilized themselves compared to the earle 90's. This makes a lot of sense due to genres not changing that much ofer the years. Styles of music don't have that much of a range, they are very distinct types of music. If that was the case we would then be talking of a different genre.
+As shown below, song audio feature trends over the years have stabilized themselves compared to the earle 90's. This is probably because the majority of songs from those years (in the dataset) belong to a small amount of genres with very distinct audio features. Styles of music don't have that much of a range, they are very distinct types of music. If that was the case we would then be talking of a different genre.
 
 ![This is an image](./images/Feature_time_changes.png)
 
-When plotting the same grapgh but for the duration of songs over the years, one interesting thing thas has happened in recent years, is that songs are shorter as the years progress. One could argue that this is because over the past years attention span is decreasing exponentially and artists take that into account. Or, maybe the dataset contains more of a specific genre which is characteristic for short songs for the latest years. Unfortunately this can't be studied due to the data not being labeled.
+When plotting the same graph but for the duration of songs over the years, one interesting thing thas has happened in recent years, is that songs are shorter as the years progress. One could argue that this is because over the past years attention span is decreasing exponentially and artists take that into account. Or, maybe the dataset contains more of a specific genre which is characteristic for short songs for the latest years. Unfortunately this can't be studied due to the data not being labeled.
 
 ![This is an image](./images/Duration_time_change.png)
 
-Moving on to some histograms that will show us how some features are distributed in the used dataset. 
+Moving on to some histograms that will show us how some features are distributed in the used dataset.
 
 First, the danceability feature. As seen, it is pretty normally distributed with a slight left skewe.
 
@@ -145,7 +145,7 @@ Two different types of clustering algorithms were chosen that can be split in 2 
 - Density model: DBSCAN
 - Centroid based model: KMeans
 
-I am going to score the resulting clusters with 3 different metrics: Silhouette and Davis-Bouldin.
+I am going to score the resulting clusters with 2 different metrics: Silhouette and Davis-Bouldin.
 - The Silhouette ranges from −1 to +1, where a high value indicates that the object is well matched to its own cluster and poorly matched to neighboring clusters.
 - The Davies-Bouldin index, is defined as the average similarity measure of each cluster with its most similar cluster, where similarity is the ratio of within-cluster distances to between-cluster distances. The minimum score is zero, with lower values indicating better clustering. The lower the average similarity is, the better the clusters are separated and the better is the result of the clustering performed.
 
@@ -194,7 +194,7 @@ Next, the evaluation metrics will be displayed. Prioritizing the quality of sepa
 ![This is an image](./images/KMeans.png)
 
 ### Model selection
-Prioritizing Davies-Bouldin Index as the indicator for our model selection, K-Means is the best model to create significant clusters. For the density model, the clustering hasn't worked as expected even after fine tuning the "eps" and the results weren't great either. 
+Prioritizing Davies-Bouldin Index as the indicator for our model selection, K-Means is the best model to create significant clusters. For the density model, the clustering hasn't worked as expected even after fine tuning the "eps" and the results weren't great either.
 
 Davies-Bouldin Scores:
 
@@ -224,6 +224,4 @@ Next, is a peek to the simple and straightforward streamlit app built for this r
 
 Based on the results obtained after modeling, it can be seen, how K-Means is the best model to create clusters. This is supported by K-Means having the lowest Davies-Bouldin score. Also, the visualization is showing a better separation in clusters than the DBSCAN algorithm.
 
-After developing this recommender system, I have found that recommendation systems can be much more complex. It is impossible to build some sort of recommender system similar to the one Spotify has developed without their data and insights on all their users. I can imagine they have some sort of hybrid recommender system that combines collaborative and content based filtering. 
-
-
+After developing this recommender system, I have found that recommendation systems can be much more complex. It is impossible to build some sort of recommender system similar to the one Spotify has developed without their data and insights on all their users. I can imagine they have some sort of hybrid recommender system that combines collaborative and content based filtering.
